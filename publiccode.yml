@@ -1,0 +1,65 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '1.0'
+applicationSuite: GTFS2NeTEx-converter
+categories:
+  - application-development
+  - data-collection
+description:
+  it:
+    features:
+      - Conversione dati
+    genericName: GTFS2NeTEx-converter
+    localisedName: GTFS2NeTEx-converter
+    longDescription: |
+      Software per la conversione dal formato GTFS statico al formato NeTEx Italian Profile Level 1 
+      Il programma e' caratterizzato da una logica database-driven e produce il file NETEx in formato 
+      compresso e non-compresso, oltre al database di elaborazione utilizzabile per scopi di debugging 
+      e post-elaborazioni (es. calcolo KPI).
+    shortDescription: Convertitore dati
+developmentStatus: stable
+intendedAudience:
+  countries:
+    - it
+  scope:
+    - government
+    - transportation
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+  riuso:
+    codiceIPA: data
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: Liguria Digitale
+  repoOwner: Liguria Digitale
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: false
+logo: |
+  Il software permette la conversione di feed GTFS statici nel formato NeTEx Italian Profile Level 1 (EPIP).
+
+maintenance:
+  contacts:
+    - affiliation: Liguria Digitale
+      email: riuso@liguriadigitale.it
+      name: Roberto Martinelli
+  type: internal
+name: GTFS2NeTEx-converter
+platforms:
+  - windows mac linux
+releaseDate: '2024-09-12'
+softwareType: standalone/backend
+url: 'https://github.com/Liguria-Digitale/GTFS2NeTEx-converter'
