@@ -48,8 +48,8 @@ localisation:
   availableLanguages:
     - it
   localisationReady: false
-logo: |
-  Il software permette la conversione di feed GTFS statici nel formato NeTEx Italian Profile Level 1 (EPIP).
+logo: |-
+  LiguriaDigitale.png
 
 maintenance:
   contacts:
