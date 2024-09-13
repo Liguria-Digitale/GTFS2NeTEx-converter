@@ -14,10 +14,16 @@ description:
     genericName: GTFS2NeTEx-converter
     localisedName: GTFS2NeTEx-converter
     longDescription: |
-      Software per la conversione dal formato GTFS statico al formato NeTEx Italian Profile Level 1 
-      Il programma e' caratterizzato da una logica database-driven e produce il file NETEx in formato 
-      compresso e non-compresso, oltre al database di elaborazione utilizzabile per scopi di debugging 
-      e post-elaborazioni (come ad esempio il calcolo KPI).
+      Software per la conversione di dati dal formato GTFS (General Transit Feed
+      Specification) statico al formato NeTEx (Network Timetable Exchange)
+      Italian Profile Level 1. Il programma e' caratterizzato da una logica
+      database-driven e produce il file NETEx in formato compresso e
+      non-compresso. Produce inoltre il database di elaborazione utilizzabile
+      per scopi di debugging e post-elaborazioni (come ad esempio il calcolo KPI
+      (Key Performace Index).
+
+      GTFS2NeTEx-converter e' un applicativo a linea di comando, organizzato in
+      moduli che contengono varie classi e metodi.
     shortDescription: Convertitore dati
 developmentStatus: stable
 intendedAudience:
@@ -49,8 +55,7 @@ localisation:
     - it
   localisationReady: false
 logo: |-
-  LiguriaDigitale.png
-
+  https://raw.githubusercontent.com/Liguria-Digitale/GTFS2NeTEx-converter/master/LiguriaDigitale.png
 maintenance:
   contacts:
     - affiliation: Liguria Digitale
