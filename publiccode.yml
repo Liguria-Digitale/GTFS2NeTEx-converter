@@ -17,7 +17,7 @@ description:
       Software per la conversione dal formato GTFS statico al formato NeTEx Italian Profile Level 1 
       Il programma e' caratterizzato da una logica database-driven e produce il file NETEx in formato 
       compresso e non-compresso, oltre al database di elaborazione utilizzabile per scopi di debugging 
-      e post-elaborazioni (es. calcolo KPI).
+      e post-elaborazioni (come ad esempio il calcolo KPI).
     shortDescription: Convertitore dati
 developmentStatus: stable
 intendedAudience:
