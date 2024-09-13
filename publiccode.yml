@@ -2,7 +2,7 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
-publiccodeYmlVersion: '1.0'
+publiccodeYmlVersion: '0.2'
 applicationSuite: GTFS2NeTEx-converter
 categories:
   - application-development
