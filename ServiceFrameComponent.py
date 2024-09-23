@@ -275,7 +275,7 @@ class ServiceFrameProcessing():
         #              ORDER BY a.route_id, a.direction_id''')			
 
 		c.execute('''SELECT 
-                       route_type_decoded, route_id, direction_id, shape_id, route_long_name, distance, space_patt
+                       DISTINCT route_type_decoded, route_id, direction_id, shape_id, route_long_name, distance, space_patt
                      FROM t_trips_stoptimes_shapes_3_SPATT''')					 		 
 					 # row[0]: route_type_decoded
 					 # row[1]: route_id

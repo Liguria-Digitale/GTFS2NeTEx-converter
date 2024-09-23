@@ -503,7 +503,8 @@ class StartImportProcess():
                     WHEN "5" THEN  "cableway"
                     WHEN "6" THEN  "lift"
                     WHEN "7" THEN  "funicular"
-                    WHEN "11" THEN  "trolleyBus"                  
+                    WHEN "11" THEN  "trolleyBus"  
+                    WHEN "1100" THEN "air"                
                     ELSE "unknown" 
                 END
                 ''') 
@@ -1124,11 +1125,18 @@ class StartImportProcess():
                   FROM v_trips_stoptimes_shapes_3_NEW AS a;''')
     conn.commit()
 
+    # c.execute('''CREATE VIEW v_spatial_patterns
+    #               AS
+    #               SELECT 
+    #               trip_id,
+    #               (MIN(stop_sequence) || "-" || MAX(stop_sequence) || "-" || COUNT(stop_id)) AS space_patt FROM tb_stop_times GROUP BY trip_id ORDER BY trip_id''')
+
     c.execute('''CREATE VIEW v_spatial_patterns
                   AS
                   SELECT 
                   trip_id,
-                  (MIN(stop_sequence) || "-" || MAX(stop_sequence) || "-" || COUNT(stop_id)) AS space_patt FROM tb_stop_times GROUP BY trip_id ORDER BY trip_id''')
+                  (MIN(stop_sequence) || "-" || MAX(stop_sequence) || "-" || COUNT(stop_id) || "-" || SUM(pickup_type) || "-" || SUM(drop_off_type)) AS space_patt FROM tb_stop_times GROUP BY trip_id ORDER BY trip_id''')
+
     conn.commit()
 
     print("SPATT view creation...")    
@@ -1164,13 +1172,22 @@ class StartImportProcess():
                      FROM 
                        v_trips_stoptimes_shapes_2_SPATT;''')
 
+    # c.execute('''CREATE TABLE t_trips_stoptimes_shapes_3_SPATT 
+    #               AS						
+    #               SELECT DISTINCT
+    #                    IIF(a.route_type_decoded="lift", "unknown", a.route_type_decoded) AS route_type_decoded, a.route_id, a.direction_id, a.shape_id, a.route_long_name,
+    #                    a.space_patt
+    #                  FROM t_trips_stoptimes_shapes_2_SPATT AS a
+    #                  GROUP BY a.route_id, a.direction_id, a.shape_id, a.space_patt
+    #                  ORDER BY a.route_id, a.direction_id''')
+
     c.execute('''CREATE TABLE t_trips_stoptimes_shapes_3_SPATT 
                   AS						
                   SELECT DISTINCT
                        IIF(a.route_type_decoded="lift", "unknown", a.route_type_decoded) AS route_type_decoded, a.route_id, a.direction_id, a.shape_id, a.route_long_name,
-                       a.space_patt
+                       a.space_patt, a.service_id
                      FROM t_trips_stoptimes_shapes_2_SPATT AS a
-                     GROUP BY a.route_id, a.direction_id, a.shape_id, a.space_patt
+                     GROUP BY a.route_id, a.direction_id, a.shape_id, a.space_patt, a.service_id
                      ORDER BY a.route_id, a.direction_id''')
     conn.commit()
 
