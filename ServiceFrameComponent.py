@@ -179,7 +179,7 @@ class ServiceFrameProcessing():
 				nameStop=SupportUtilitiesSubComponent.StringUtilities
 				nameStopClean=nameStop.filterOutNotMultilingualChars(self, row[1])			
 
-			outStopAssignmentsText= outStopAssignmentsText + """<PassengerStopAssignment order="1" id="%s:ScheduledStopPoint:%s%s:%s" version="%s">  
+			outStopAssignmentsText= outStopAssignmentsText + """<PassengerStopAssignment order="1" id="%s:PassengerStopAssignment:%s%s:%s" version="%s">  
 										<ScheduledStopPointRef ref="%s:ScheduledStopPoint:%s%s:%s" version="%s" />
 										<StopPlaceRef ref="%s:StopPlace:%s%s:%s" version="%s" />
 										<QuayRef ref="%s:Quay:%s%s:%s" version="%s" />										
