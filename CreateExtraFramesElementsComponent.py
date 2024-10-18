@@ -42,6 +42,7 @@ class CreateExtraFramesElementsProcessing():
 							<!--- =======FRAME DEFAULTS======== -->
 							<FrameDefaults>
 								<DefaultCodespaceRef ref="ita"/>
+								<DefaultLocale><TimeZone>Europe/Rome</TimeZone></DefaultLocale>
 							</FrameDefaults>
 							<frames>""" % (UTCTime, iNUTS, iNUTS, iAz, fmtStartDayCut, fmtEndDayCut)
 
