@@ -41,7 +41,7 @@ Devono inoltre essere installate (*pip install* o *pip3 install*) le librerie:
 
 GTFS2NeTEx-converter utilizza SQLite3 in fase di elaborazione; l'ambiente SQLite3 e' generato in fase di runtime dalla corrispondente libreria base Python 3: non e' pertanto necessaria alcuna forma di installazione di un RDBMS.
 
-Si consiglia l'utilizzo con macchine dotate di almeno 16MB RAM.
+Si consiglia l'utilizzo con macchine dotate di almeno 16GB RAM.
 
 ---
 
