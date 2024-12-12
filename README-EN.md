@@ -174,7 +174,13 @@ If the conversion process ends correctly within the directory ```<GTFS_FEED_FOLD
 - ```<NUTS2_CODE>-<AGENCY_ACRONYM>-NeTEx_L1.xml.gz```: NeTEx Italian Profile Level 1 (gz-compressed)
 - ```<AGENCY_ACRONYM>.db```: Intermediate SQLite3 database used by the converter during processing; can be used for debugging purposes and processed later for further purposes (e.g. calculation of transportation KPIs related to the transportation offer described in the data); an effective cross-platform open source editor for SQLite is [DB Browser for SQLite](https://sqlitebrowser.org/) 
 
+## Run as docker container
+The application is also available as docker container (see packages on this repo)
 
+Make sure to mount your decompressed gtfs folder, and reference it as `<GTFS_FEED_FOLDER>` like so:
+```sh
+docker run --rm --volume ./gtfs:/gtfs  ghcr.io/liguria-digitale/gtfs2netex-converter:latest --folder /gtfs --NUTS <NUTS2_CODE> --db <AGENCY_ACRONYM> --az <AGENCY_ACRONYM> --vat <AGENCY_VAT_NUMBER> --version <VERSION_NAME>
+```
 
 
 
