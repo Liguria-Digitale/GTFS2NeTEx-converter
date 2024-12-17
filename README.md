@@ -171,7 +171,7 @@ Esempio di utilizzo:
 Se il processo termina correttamente all'interno della directory ```<GTFS_FEED_FOLDER>``` saranno presenti i seguenti files:
 
 - ```<NUTS2_CODE>-<AGENCY_ACRONYM>-NeTEx_L1.xml```: file NeTEx Italian Profile Level 1 (non compresso)
-- ```<NUTS2_CODE>-<AGENCY_ACRONYM>-NeTEx_L1.xml.gz```: stesso file NeTEx Italian Profile Level 1 (in formato gz compresso)
+- ```<NUTS2_CODE>-<AGENCY_ACRONYM>-NeTEx_L1.xml.gz```: stesso file NeTEx Italian Profile Level 1 (in formato .gz compresso)
 - ```<AGENCY_ACRONYM>.db```: database SQLite3 intermedio utilizzato dal convertitore durante l'elaborazione; puo' essere usato sia per scopi di debugging che elaborato successivamente per altre finalita' (es. calcolo KPI relativi all'offerta di trasporto descritta nei dati); un efficace editor multipiattaforma open source per SQLite è' [DB Browser for SQLite](https://sqlitebrowser.org/) 
 
 
