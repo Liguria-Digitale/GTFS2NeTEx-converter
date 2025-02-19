@@ -1135,7 +1135,7 @@ class StartImportProcess():
                   AS
                   SELECT 
                   trip_id,
-                  (MIN(stop_sequence) || "-" || MAX(stop_sequence) || "-" || COUNT(stop_id) || "-" || SUM(pickup_type) || "-" || SUM(drop_off_type)) AS space_patt FROM tb_stop_times GROUP BY trip_id ORDER BY trip_id''')
+                  (MIN(stop_sequence) || "-" || MAX(stop_sequence) || "-" || COUNT(stop_id) || "-" || SUM(COALESCE(pickup_type,'0')) || "-" || SUM(COALESCE(drop_off_type,'0'))) AS space_patt FROM tb_stop_times GROUP BY trip_id ORDER BY trip_id''')
 
     conn.commit()
 
