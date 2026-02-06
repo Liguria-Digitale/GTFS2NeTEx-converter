@@ -22,7 +22,8 @@ class CreatePointsInSequenceProcessing():
 					   a.stop_id=b.stop_id 
 					   AND
 					   a.shape_dist_traveled_next IS NOT NULL
-					ORDER BY a.stop_sequence;''' % (iRoute_id, iDirection_id, iSpacePattern_id, iShape_id)						
+					ORDER BY a.stop_sequence;''' % (iRoute_id, iDirection_id, iSpacePattern_id, iShape_id)			
+					
 					
 		#print(sqlStat)
 		iC.execute(sqlStat)
@@ -35,23 +36,22 @@ class CreatePointsInSequenceProcessing():
 		for iRow in iRecords:
 
 			idStopClean=""
-
-			if(iRow[10]=="0"): # drop_off_type
-				isForAlighting="true"
-			else:
-				isForAlighting="false"
-
-			if(iRow[9]=="0"): # pickup_type
-				isForBoarding="true"
-			else:
-				isForBoarding="false"				
-
-			if(iRow[2]==1 and iRow[7]!=0.0): # stop_sequence - shape_dist_traveled
+									
+			if(iRow[2]==1 and iRow[7]!=0.0): # FIRST stop - stop_sequence - shape_dist_traveled
 				isForAlighting="false"
 				isForBoarding="true"
-			elif(iRow[2]!=1 and iRow[7]==0.0): # stop_sequence - shape_dist_traveled
+			elif(iRow[2]!=1 and iRow[7]==0.0): # LAST stop stop_sequence - shape_dist_traveled
 				isForAlighting="true"
-				isForBoarding="false"
+				isForBoarding="false"	
+			elif(iRow[10]=="0" and iRow[9])=="0": # drop_off TRUE, pickup TRUE
+					isForAlighting="true"
+					isForBoarding="true"
+			elif(iRow[10]=="1" and iRow[9])=="0": # drop_off FALSE, pickup TRUE
+					isForAlighting="false"
+					isForBoarding="true"	
+			elif(iRow[10]=="0" and iRow[9])=="1": # drop_off TRUE, pickup FALSE
+					isForAlighting="true"
+					isForBoarding="false"												
 
 			if(iRow[3]):
 				idStop=SupportUtilitiesSubComponent.StringUtilities

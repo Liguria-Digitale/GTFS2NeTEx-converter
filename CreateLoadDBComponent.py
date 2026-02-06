@@ -438,6 +438,25 @@ class StartImportProcess():
     else:
           print("WARNING: file stop_times.txt NOT existing in " + iGTFSExplodedFeedFolder) 
 
+    # check post-import
+    # check pickup_type
+    c.execute('''UPDATE tb_stop_times
+                    SET pickup_type=(
+                      CASE TRIM(pickup_type)
+                         WHEN "1.0" THEN "1"
+                         WHEN "1" THEN "1"	
+                          ELSE "0" 
+                      END);''')  
+
+       # check drop_off_type
+    c.execute('''UPDATE tb_stop_times
+                    SET drop_off_type=(
+                      CASE TRIM(drop_off_type)
+                         WHEN "1.0" THEN "1"
+                         WHEN "1" THEN "1"	
+                          ELSE "0" 
+                      END);''')                            
+
     # import transfers.txt
     if Path(iGTFSExplodedFeedFolder + os.sep + 'transfers.txt').is_file():
         print("===> transfers.txt exists in " + iGTFSExplodedFeedFolder + ". Importing...")
@@ -1177,6 +1196,7 @@ class StartImportProcess():
                        stop_sequence, trip_headsign, shape_id, shape_id_partial, space_patt, pickup_type, drop_off_type 
                      FROM 
                        v_trips_stoptimes_shapes_2_SPATT;''')
+    conn.commit()
 
     # c.execute('''CREATE TABLE t_trips_stoptimes_shapes_3_SPATT 
     #               AS						
